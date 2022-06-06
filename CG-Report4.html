@@ -83,10 +83,10 @@
         sprite2.position.x = -100;
         sprite2.position.y = 500;
         sprite2.position.z = -100;
-        sprite2.scale.set(100,100,100);
+        sprite2.scale.set(50,50,50);
         scene.add(sprite2);
 
-        const box_g = new THREE.BoxGeometry(0.5, 100, 0.5);
+        const box_g = new THREE.BoxGeometry(0.5, 50, 0.5);
         const material_b = new THREE.MeshBasicMaterial( {color: 0xFF0000} );
         const box = new THREE.Mesh(box_g, material_b);
         box.position.set(0, 0, 0);
@@ -98,6 +98,16 @@
           // レンダリング
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
+          box.position.y += 1;
+          if(box.position.y > 250)
+          {
+            sprite2.position.y = 500;
+            box.position.y = -100;
+          }
+          else
+          {
+            sprite2.position.y = -500;
+          }
         }
       }
     </script>
