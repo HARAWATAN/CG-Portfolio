@@ -46,11 +46,11 @@
         scene.add(directionalLight2);
 
         // helper
-      const gridHelper = new THREE.GridHelper(200,50); // size, step
+      /*const gridHelper = new THREE.GridHelper(200,50); // size, step
       scene.add(gridHelper);
 
       const axisHelper = new THREE.AxisHelper(200,50);
-      scene.add(axisHelper);
+      scene.add(axisHelper);*/
 
         // 花火をスプライトで作成
         var textureLoader = new THREE.TextureLoader();  
@@ -86,7 +86,7 @@
         sprite2.scale.set(100,100,100);
         scene.add(sprite2);
 
-        const box_g = new THREE.BoxGeometry(0.5, 2, 0.5);
+        const box_g = new THREE.BoxGeometry(0.5, 100, 0.5);
         const material_b = new THREE.MeshBasicMaterial( {color: 0xFF0000} );
         const box = new THREE.Mesh(box_g, material_b);
         box.position.set(0, 0, 0);
