@@ -17,8 +17,9 @@
         const height = 600;
 
         // レンダラーを作成
-        var renderer = new THREE.WebGLRenderer();
-        document.body.appendChild(renderer.domElement);
+        var renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#myCanvas')
+          });
         renderer.setSize(width, height);
         renderer.shadowMap.enabled = true;
 
@@ -260,5 +261,14 @@
         }
       }
     </script>
+    <h1>泳ぐ魚たち</h1>
+    <canvas id="myCanvas"></canvas>
+    <p>
+    本課題では、オブジェクトにテクスチャーを貼り付けた。<br>
+    水中の表現は、テクスチャーを貼ったオブジェクトで箱を作って表現した。<br>
+    下にあるオブジェクトには、石のテクスチャーを貼って海底らしさを出した。<br>
+    魚のオブジェクトは、グループ化をして、それぞれ泳ぐ速度を変えた。<br>
+    しっぽだけ動かして、泳いでる雰囲気を出した。<br>
+    </p>
 </body>
 </html>
