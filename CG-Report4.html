@@ -97,6 +97,12 @@
         sprite4.scale.set(50,50,50);
         scene.add(sprite4);
 
+        const river_g = new THREE.BoxGeometry(1000, 0.8, 1000);
+        const material_river = new THREE.MeshBasicMaterial( {color: 0x4c6cb3} );
+        const river = new THREE.Mesh(river_g, material_river);
+        river.position.set(0, 0, 0);
+        scene.add(river);
+
         const box_g = new THREE.BoxGeometry(0.5, 50, 0.5);
         const material_R = new THREE.MeshBasicMaterial( {color: 0xFF0000} );
         const material_Sl = new THREE.MeshBasicMaterial( {color: 0xeaf4fc} );
