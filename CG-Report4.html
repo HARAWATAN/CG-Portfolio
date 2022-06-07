@@ -133,10 +133,20 @@
           {
             sprite1.position.y = 300;
             box_1.position.y = -100;
+            box_1.position.x += 50;
+            if(box_1.position.x > 1000)
+            {
+              box_1.position.x = -500;
+            }
           }
           else if(box_1.position.y > -50)
           {
             sprite1.position.y = -5000;
+            sprite1.position.x += 50;
+            if(sprite1.position.x > 1000)
+            {
+              sprite1.position.x = -500;
+            }
           }
 
           if(box_2.position.y > 200)
