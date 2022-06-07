@@ -31,7 +31,7 @@
         // カメラを作成
         const camera = new THREE.PerspectiveCamera(45, width / height);
         // カメラの初期座標を設定
-        camera.position.set(0, 500, 600);
+        camera.position.set(0, 500, 1000);
 
         // カメラコントローラーを作成
         const controls = new THREE.OrbitControls(camera,document.body);
@@ -128,9 +128,9 @@
           // レンダリング
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
-          box_1.position.y += 1;
-          box_2.position.y += 2;
-          box_3.position.y += 1;
+          box_1.position.y += 2;
+          box_2.position.y += 3;
+          box_3.position.y += 2;
           if(box_1.position.y > 250)
           {
             F1 = 1;
@@ -210,6 +210,7 @@
     </script>
   </head>
   <body>
+    <h1>打ち上げ花火はどこから見ても同じ</h1>
     <canvas id="myCanvas"></canvas>
     <p>本課題では、ビルボードで花火を再現した。</p>
   </body>
