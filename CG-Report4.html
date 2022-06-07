@@ -9,6 +9,8 @@
       // ページの読み込みを待つ
       window.addEventListener('load', init);
       var F1 = 0;
+      var F2 = 0;
+      var F3 = 0;
       function init() {
         // サイズを指定
         const width = 960;
@@ -134,10 +136,10 @@
             F1 = 1;
             sprite1.position.y = 300;
             box_1.position.y = -100;
-            box_1.position.x += 50;
-            if(box_1.position.x > 1000)
+            box_1.position.x += 100;
+            if(box_1.position.x > 400)
             {
-              box_1.position.x = -500;
+              box_1.position.x = -400;
             }
           }
           else if(box_1.position.y > -50)
@@ -145,33 +147,63 @@
             sprite1.position.y = -5000;
             if(F1 == 1)
             {
-              sprite1.position.x += 50;
+              sprite1.position.x += 100;
               F1 = 0;
             }
-            if(sprite1.position.x > 1000)
+            if(sprite1.position.x > 400)
             {
-              sprite1.position.x = -500;
+              sprite1.position.x = -400;
             }
           }
 
           if(box_2.position.y > 200)
           {
+            F2 = 1;
             sprite2.position.y = 250;
             box_2.position.y = -100;
+            box_2.position.x += 100;
+            if(box_2.position.x > 500)
+            {
+              box_2.position.x = -500;
+            }
           }
           else if(box_2.position.y > -50)
           {
             sprite2.position.y = -5000;
+            if(F2 == 1)
+            {
+              sprite2.position.x += 100;
+              F2 = 0;
+            }
+            if(sprite2.position.x > 500)
+            {
+              sprite2.position.x = -500;
+            }
           }
 
           if(box_3.position.y > 250)
           {
+            F3 = 1;
             sprite3.position.y = 350;
             box_3.position.y = -150;
+            box_3.position.x += 100;
+            if(box_3.position.x > 300)
+            {
+              box_3.position.x = -300;
+            }
           }
           else if(box_3.position.y > -50)
           {
             sprite3.position.y = -5000;
+            if(F3 == 1)
+            {
+              sprite3.position.x += 100;
+              F3 = 0;
+            }
+            if(sprite3.position.x > 300)
+            {
+              sprite3.position.x = -300;
+            }
           }
         }
       }
