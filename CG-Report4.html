@@ -8,7 +8,7 @@
     <script>
       // ページの読み込みを待つ
       window.addEventListener('load', init);
-
+      var F1 = 0;
       function init() {
         // サイズを指定
         const width = 960;
@@ -131,18 +131,23 @@
           box_3.position.y += 1;
           if(box_1.position.y > 250)
           {
+            F1 = 1;
             sprite1.position.y = 300;
             box_1.position.y = -100;
             box_1.position.x += 50;
             if(box_1.position.x > 1000)
             {
-              sprite1.position.x += 50;
               box_1.position.x = -500;
             }
           }
           else if(box_1.position.y > -50)
           {
             sprite1.position.y = -5000;
+            if(F1 = 1)
+            {
+              sprite1.position.x += 50;
+              F1 = 0;
+            }
             if(sprite1.position.x > 1000)
             {
               sprite1.position.x = -500;
