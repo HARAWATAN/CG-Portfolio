@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/three@0.137.4/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.137.4/examples/js/controls/OrbitControls.js"></script>
+    <script>
+      // ページの読み込みを待つ
+      window.addEventListener('load', init);
+      var F1 = 0;
+      var F2 = 0;
+      var F3 = 0;
+      function init() {
+        // サイズを指定
+        const width = 960;
+        const height = 540;
+
+        // レンダラーを作成
+        const renderer = new THREE.WebGLRenderer({
+          canvas: document.querySelector('#myCanvas')
+        });
+        //document.body.appendChild(renderer.domElement);
+        renderer.setSize(width, height);
+        // 背景の色を設定
+        renderer.setClearColor(0x281a14);
+
+        // シーンを作成
+        const scene = new THREE.Scene();
+
+        // カメラを作成
+        const camera = new THREE.PerspectiveCamera(45, width / height);
+        // カメラの初期座標を設定
+        camera.position.set(0, 500, 1000);
+
+        // カメラコントローラーを作成
+        const controls = new THREE.OrbitControls(camera,document.body);
+  
+        // 平行光源1
+        var directionalLight1 = new THREE.DirectionalLight(0xffffff);
+        directionalLight1.position.set(100, 100, 100);
+        // シーンに追加
+        scene.add(directionalLight1);
+        // 平行光源2
+        var directionalLight2 = new THREE.DirectionalLight(0xffffff);
+        directionalLight2.position.set(-100, 100, 100);
+        // シーンに追加
+        scene.add(directionalLight2);
+
+        var directionalLight3 = new THREE.DirectionalLight(0xffffff);
+        directionalLight3.position.set(0, -100, -100);
+        // シーンに追加
+        scene.add(directionalLight3);
+
+
+        // helper
+      /*const gridHelper = new THREE.GridHelper(200,50); // size, step
+      scene.add(gridHelper);
+
+      const axisHelper = new THREE.AxisHelper(200,50);
+      scene.add(axisHelper);*/
+
+        const conegeometry = new THREE.ConeGeometry( 5, 20, 32 );
+        const boxgeometry = new THREE.BoxGeometry( 5, 5, 5 );
+        const material = new THREE.MeshPhongMaterial( {color: 0xFF0000} );
+        const material_Bl = new THREE.MeshPhongMaterial( {color: 0x000000} );
+        const body1 = new THREE.Mesh( conegeometry, material );
+        scene.add( body1 );
+        body1.scale.set(30,30,15);
+        body1.position.set(0, 100, 0);
+
+        const cylindergeometry = new THREE.CylinderGeometry(5, 10, 20, 20);
+
+        const body2 = new THREE.Mesh( cylindergeometry, material );
+        scene.add( body2 );
+        body2.scale.set(6,20,10);
+        body2.rotation.y = 3.14/2;
+        body2.position.set(0, 200, 0);
+
+        const jet1 = new THREE.Mesh( cylindergeometry, material_Bl );
+        scene.add( jet1 );
+        jet1.scale.set(4,4,4);
+        jet1.rotation.y = 3.14/2;
+        jet1.position.set(0, -200, 0);
+
+        const jet2 = new THREE.Mesh( cylindergeometry, material_Bl );
+        scene.add( jet2 );
+        jet2.scale.set(4,4,4);
+        jet2.rotation.y = 3.14/2;
+        jet2.position.set(150, -200, 0);
+
+        const jet3 = new THREE.Mesh( cylindergeometry, material_Bl );
+        scene.add( jet3 );
+        jet3.scale.set(4,4,4);
+        jet3.rotation.y = 3.14/2;
+        jet3.position.set(-150, -200, 0);
+
+        const wingR = new THREE.Mesh( conegeometry, material );
+        scene.add( wingR );
+        wingR.scale.set(56,14, 2);
+        wingR.rotation.z = 3.14/2+3.14/4;
+        wingR.position.set(60, 50, 0);
+
+        const wingL = new THREE.Mesh( conegeometry, material );
+        scene.add( wingL );
+        wingL.scale.set(56,14, 2);
+        wingL.rotation.z = -3.14/2-3.14/4;
+        wingL.position.set(-60, 50, 0);
+
+        const wingT = new THREE.Mesh( conegeometry, material );
+        scene.add( wingT );
+        wingT.scale.set(25,7, 2);
+        wingT.rotation.y = -3.14/2;
+
+        wingT.position.set(0, -130, 80);
+
+        const back_g = new THREE.SphereGeometry(7, 12, 8, Math.PI * 0.25, Math.PI * 1.5, Math.PI * 0.25, Math.PI * 0.5);
+        const back1 = new THREE.Mesh( back_g, material );
+        scene.add( back1 );
+        back1.scale.set(20,35, 10);
+        back1.rotation.z = 3.14/2;
+        back1.position.set(-150, -180, 0);
+
+        const back2 = new THREE.Mesh( back_g, material );
+        scene.add( back2 );
+        back2.scale.set(20,35, 10);
+        back2.rotation.z = 3.14/2;
+        back2.position.set(150, -180, 0);
+
+        const back3 = new THREE.Mesh( boxgeometry, material );
+        scene.add( back3 );
+        back3.scale.set(20,100, 20);
+        back3.rotation.z = 3.14/2;
+        back3.position.set(0, -180, 0);
+
+
+        tick();
+        // 毎フレーム時に実行されるループイベントです
+        function tick() {
+          // レンダリング
+          renderer.render(scene, camera);
+          requestAnimationFrame(tick);
+          
+          }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>打ち上げ花火はどこから見ても同じ</h1>
+    <canvas id="myCanvas"></canvas>
+    <p>本課題では、ビルボードで花火を再現した。</p>
+  </body>
+</html>
