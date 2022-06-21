@@ -64,74 +64,151 @@
         const boxgeometry = new THREE.BoxGeometry( 5, 5, 5 );
         const material = new THREE.MeshPhongMaterial( {color: 0xFF0000} );
         const material_Bl = new THREE.MeshPhongMaterial( {color: 0x000000} );
-        const body1 = new THREE.Mesh( conegeometry, material );
-        scene.add( body1 );
-        body1.scale.set(30,30,15);
-        body1.position.set(0, 100, 0);
+        const material_BLUE = new THREE.MeshPhongMaterial( {color: 0x4c6cb3} );
+        const body1_G1 = new THREE.Mesh( conegeometry, material );
+        scene.add( body1_G1 );
+        body1_G1.scale.set(30,30,15);
+        body1_G1.position.set(0, 100, 0);
 
         const cylindergeometry = new THREE.CylinderGeometry(5, 10, 20, 20);
 
-        const body2 = new THREE.Mesh( cylindergeometry, material );
-        scene.add( body2 );
-        body2.scale.set(6,20,10);
-        body2.rotation.y = 3.14/2;
-        body2.position.set(0, 200, 0);
+        const body2_G1 = new THREE.Mesh( cylindergeometry, material );
+        scene.add( body2_G1 );
+        body2_G1.scale.set(6,20,10);
+        body2_G1.rotation.y = 3.14/2;
+        body2_G1.position.set(0, 200, 0);
 
-        const jet1 = new THREE.Mesh( cylindergeometry, material_Bl );
-        scene.add( jet1 );
-        jet1.scale.set(4,4,4);
-        jet1.rotation.y = 3.14/2;
-        jet1.position.set(0, -200, 0);
+        const jet1_G1 = new THREE.Mesh( cylindergeometry, material_Bl );
+        scene.add( jet1_G1 );
+        jet1_G1.scale.set(4,4,4);
+        jet1_G1.rotation.y = 3.14/2;
+        jet1_G1.position.set(150, -200, 0);
 
-        const jet2 = new THREE.Mesh( cylindergeometry, material_Bl );
-        scene.add( jet2 );
-        jet2.scale.set(4,4,4);
-        jet2.rotation.y = 3.14/2;
-        jet2.position.set(150, -200, 0);
+        const jet2_G1 = new THREE.Mesh( cylindergeometry, material_Bl );
+        scene.add( jet2_G1 );
+        jet2_G1.scale.set(4,4,4);
+        jet2_G1.rotation.y = 3.14/2;
+        jet2_G1.position.set(-150, -200, 0);
 
-        const jet3 = new THREE.Mesh( cylindergeometry, material_Bl );
-        scene.add( jet3 );
-        jet3.scale.set(4,4,4);
-        jet3.rotation.y = 3.14/2;
-        jet3.position.set(-150, -200, 0);
+        const wingR_G1 = new THREE.Mesh( conegeometry, material );
+        scene.add( wingR_G1 );
+        wingR_G1.scale.set(56,14, 2);
+        wingR_G1.rotation.z = 3.14/2+3.14/4;
+        wingR_G1.position.set(60, 50, 0);
 
-        const wingR = new THREE.Mesh( conegeometry, material );
-        scene.add( wingR );
-        wingR.scale.set(56,14, 2);
-        wingR.rotation.z = 3.14/2+3.14/4;
-        wingR.position.set(60, 50, 0);
+        const wingL_G1 = new THREE.Mesh( conegeometry, material );
+        scene.add( wingL_G1 );
+        wingL_G1.scale.set(56,14, 2);
+        wingL_G1.rotation.z = -3.14/2-3.14/4;
+        wingL_G1.position.set(-60, 50, 0);
 
-        const wingL = new THREE.Mesh( conegeometry, material );
-        scene.add( wingL );
-        wingL.scale.set(56,14, 2);
-        wingL.rotation.z = -3.14/2-3.14/4;
-        wingL.position.set(-60, 50, 0);
+        const wingT_G1 = new THREE.Mesh( conegeometry, material );
+        scene.add( wingT_G1 );
+        wingT_G1.scale.set(25,7, 2);
+        wingT_G1.rotation.y = -3.14/2;
 
-        const wingT = new THREE.Mesh( conegeometry, material );
-        scene.add( wingT );
-        wingT.scale.set(25,7, 2);
-        wingT.rotation.y = -3.14/2;
-
-        wingT.position.set(0, -130, 80);
+        wingT_G1.position.set(0, -130, 80);
 
         const back_g = new THREE.SphereGeometry(7, 12, 8, Math.PI * 0.25, Math.PI * 1.5, Math.PI * 0.25, Math.PI * 0.5);
-        const back1 = new THREE.Mesh( back_g, material );
-        scene.add( back1 );
-        back1.scale.set(20,35, 10);
-        back1.rotation.z = 3.14/2;
-        back1.position.set(-150, -180, 0);
+        const back1_G1 = new THREE.Mesh( back_g, material );
+        scene.add( back1_G1 );
+        back1_G1.scale.set(20,35, 10);
+        back1_G1.rotation.z = 3.14/2;
+        back1_G1.position.set(-150, -180, 0);
 
-        const back2 = new THREE.Mesh( back_g, material );
-        scene.add( back2 );
-        back2.scale.set(20,35, 10);
-        back2.rotation.z = 3.14/2;
-        back2.position.set(150, -180, 0);
+        const back2_G1 = new THREE.Mesh( back_g, material );
+        scene.add( back2_G1 );
+        back2_G1.scale.set(20,35, 10);
+        back2_G1.rotation.z = 3.14/2;
+        back2_G1.position.set(150, -180, 0);
 
-        const back3 = new THREE.Mesh( boxgeometry, material );
-        scene.add( back3 );
-        back3.scale.set(20,100, 20);
-        back3.rotation.z = 3.14/2;
-        back3.position.set(0, -180, 0);
+        const back3_G1 = new THREE.Mesh( boxgeometry, material );
+        scene.add( back3_G1 );
+        back3_G1.scale.set(20,100, 20);
+        back3_G1.rotation.z = 3.14/2;
+        back3_G1.position.set(0, -180, 0);
+
+        const GetterE = new THREE.Group()
+        GetterE.add(jet1_G1, jet2_G1, back1_G1, back2_G1, back3_G1, body1_G1, body2_G1, wingL_G1, wingR_G1, wingT_G1);
+        GetterE.position.set(100, 500, 0);
+        GetterE.rotation.z = 3.14/2;
+        GetterE.rotation.x = 3.14+3.14/2;
+        GetterE.scale.set(0.8,1,0.8)
+        scene.add(GetterE);
+
+        const material_GJ = new THREE.MeshPhongMaterial( {color: 0x95949a} );
+        const body1_G2 = new THREE.Mesh( conegeometry, material_GJ );
+        scene.add( body1_G2 );
+        body1_G2.scale.set(35,30,20);
+        body1_G2.position.set(0, 100, 0);
+
+        const body2_G2 = new THREE.Mesh( cylindergeometry, material_GJ );
+        scene.add( body2_G2 );
+        body2_G2.scale.set(10,20,20);
+        body2_G2.rotation.y = 3.14/2;
+        body2_G2.position.set(0, 0, 0);
+
+        const bodyGJ = new THREE.SphereGeometry(7, 12, 8);
+
+        const body3_G2 = new THREE.Mesh( bodyGJ, material_GJ );
+        scene.add( body3_G2 );
+        body3_G2.scale.set(6,14.5, 7.2);
+        body3_G2.rotation.z = 3.14/2;
+        body3_G2.position.set(0, 190, 0);
+
+        const body4_G2 = new THREE.Mesh( bodyGJ, material_BLUE );
+        scene.add( body4_G2 );
+        body4_G2.scale.set(14.5,6, 5);
+        body4_G2.rotation.z = 3.14/2;
+        body4_G2.position.set(100, 80, 0);
+
+        const body5_G2 = new THREE.Mesh( bodyGJ, material_BLUE );
+        scene.add( body5_G2 );
+        body5_G2.scale.set(14.5,6, 5);
+        body5_G2.rotation.z = 3.14/2;
+        body5_G2.position.set(-100, 80, 0);
+
+        const back1_G2 = new THREE.Mesh( back_g, material_GJ );
+        scene.add( back1_G2 );
+        back1_G2.scale.set(40,40,15);
+        back1_G2.rotation.z = 3.14/2;
+        back1_G2.position.set(0, -200, 0);
+
+        const jet1_G2 = new THREE.Mesh( cylindergeometry, material_Bl );
+        scene.add( jet1_G2 );
+        jet1_G2.scale.set(4,4,4);
+        jet1_G2.rotation.y = 3.14/2;
+        jet1_G2.position.set(100, -200, 0);
+
+        const jet2_G2 = new THREE.Mesh( cylindergeometry, material_Bl );
+        scene.add( jet2_G2 );
+        jet2_G2.scale.set(4,4,4);
+        jet2_G2.rotation.y = 3.14/2;
+        jet2_G2.position.set(-100, -200, 0);
+
+        const wingR_G2 = new THREE.Mesh( conegeometry, material_GJ );
+        scene.add( wingR_G2 );
+        wingR_G2.scale.set(5,10, 1.5);
+        wingR_G2.rotation.z = 3.14;
+        wingR_G2.position.set(20, 220, 0);
+
+        const wingL_G2 = new THREE.Mesh( conegeometry, material_GJ );
+        scene.add( wingL_G2 );
+        wingL_G2.scale.set(5,10, 1.5);
+        wingL_G2.rotation.z = -3.14;
+        wingL_G2.position.set(-20, 220, 0);
+        
+        const cockpit_G2 = new THREE.Mesh( boxgeometry, material_GJ );
+        scene.add( cockpit_G2 );
+        cockpit_G2.scale.set(10,15,5);
+        cockpit_G2.position.set(0, 30, 70);
+
+        const GetterJ = new THREE.Group()
+        GetterJ.add(jet1_G2, jet2_G2, back1_G2,body1_G2, body2_G2, body3_G2, body4_G2, body5_G2,wingL_G2, wingR_G2, cockpit_G2);
+        GetterJ.position.set(800, 500, 0);
+        GetterJ.rotation.z = 3.14/2;
+        GetterJ.rotation.x = 3.14+3.14/2;
+        scene.add(GetterJ);
 
 
         tick();
