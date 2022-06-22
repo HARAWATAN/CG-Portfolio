@@ -66,6 +66,7 @@
         const material_Bl = new THREE.MeshPhongMaterial( {color: 0x000000} );
         const material_BLUE = new THREE.MeshPhongMaterial( {color: 0x4c6cb3} );
         const material_YELLOW = new THREE.MeshPhongMaterial( {color: 0xffff00} );
+        const material_WH = new THREE.MeshPhongMaterial( {color: 0xffffff} );
         const body1_G1 = new THREE.Mesh( conegeometry, material );
         scene.add( body1_G1 );
         body1_G1.scale.set(30,30,15);
@@ -217,15 +218,120 @@
         body1_G3.rotation.y = 3.14/2;
         body1_G3.position.set(0, 0, 0);
 
-        /*const body2_G3 = new THREE.Mesh( conegeometry, material_YELLOW );
+        const body2_G3 = new THREE.Mesh( bodyGJ, material_YELLOW );
         scene.add( body2_G3 );
-        body2_G3.scale.set(20,5, 10);
-        body2_G3.position.set(0, 250, 0);*/
+        body2_G3.scale.set(16,20, 7.8);
+        body2_G3.position.set(0, 140, 0);
 
-        const body3_G3 = new THREE.Mesh( bodyGJ, material_YELLOW );
-        scene.add( body3_G3 );
-        body3_G3.scale.set(16,20, 7.5);
-        body3_G3.position.set(0, 140, 0);
+        const wingR_G3 = new THREE.Mesh( conegeometry, material_YELLOW );
+        scene.add( wingR_G3 );
+        wingR_G3.scale.set(35,10, 1.5);
+        wingR_G3.rotation.z = -3.14/2-3.14/4;
+        wingR_G3.rotation.y = 3.14;
+        wingR_G3.position.set(100, -50, -40);
+
+        const wingL_G3 = new THREE.Mesh( conegeometry, material_YELLOW );
+        scene.add( wingL_G3 );
+        wingL_G3.scale.set(35,10, 1.5);
+        wingL_G3.rotation.z = 3.14/2+3.14/4;
+        wingL_G3.rotation.y = 3.14;
+        wingL_G3.position.set(-100, -50, -40);
+
+        const missile_g = new THREE.CylinderGeometry(10, 10, 10, 20);
+
+        const missileR_G3 = new THREE.Mesh( missile_g, material_YELLOW );
+        scene.add( missileR_G3 );
+        missileR_G3.scale.set(4,25,4);
+        missileR_G3.rotation.y = 3.14/2;
+        missileR_G3.position.set(190, -100, 40);
+
+        const missileL_G3 = new THREE.Mesh( missile_g, material_YELLOW );
+        scene.add( missileL_G3 );
+        missileL_G3.scale.set(4,25,4);
+        missileL_G3.rotation.y = 3.14/2;
+        missileL_G3.position.set(-190, -100, 40);
+
+        const missileR2_G3 = new THREE.Mesh( bodyGJ, material_WH );
+        scene.add( missileR2_G3 );
+        missileR2_G3.scale.set(5.5,10,5.5);
+        missileR2_G3.rotation.y = 3.14/2;
+        missileR2_G3.position.set(190, 35, 40);
+
+        const missileL2_G3 = new THREE.Mesh( bodyGJ, material_WH );
+        scene.add( missileL2_G3 );
+        missileL2_G3.scale.set(5.5,10,5.5);
+        missileL2_G3.rotation.y = 3.14/2;
+        missileL2_G3.position.set(-190, 35, 40);
+
+        const missileR3_G3 = new THREE.Mesh( missile_g, material_Bl );
+        scene.add( missileR3_G3 );
+        missileR3_G3.scale.set(4,4,4);
+        missileR3_G3.rotation.y = 3.14/2;
+        missileR3_G3.position.set(190, -245, 40);
+
+        const missileL3_G3 = new THREE.Mesh( missile_g, material_Bl );
+        scene.add( missileL3_G3 );
+        missileL3_G3.scale.set(4,4,4);
+        missileL3_G3.rotation.y = 3.14/2;
+        missileL3_G3.position.set(-190, -245, 40);
+
+        const cockpit_G3 = new THREE.Mesh( boxgeometry, material_YELLOW );
+        scene.add( cockpit_G3 );
+        cockpit_G3.scale.set(50,40,15);
+        cockpit_G3.position.set(0, -100, 80);
+
+        const back1_G3 = new THREE.Mesh( boxgeometry, material_YELLOW );
+        scene.add( back1_G3 );
+        back1_G3.scale.set(50,65,2);
+        back1_G3.position.set(0, -180, 115);
+
+        const back2_G3 = new THREE.Mesh( cylindergeometry, material_YELLOW );
+        scene.add( back2_G3 );
+        back2_G3.scale.set(20,10, 1);
+        //back2_G3.rotation.z = 3.14;
+        back2_G3.position.set(0, -240, -75);
+
+        const back3_G3 = new THREE.Mesh( conegeometry, material_YELLOW );
+        scene.add( back3_G3 );
+        back3_G3.scale.set(25,5, 1.5);
+        back3_G3.rotation.z = -3.14/2;
+        back3_G3.rotation.y = 3.14/2;
+        back3_G3.position.set(120, -215, 60);
+
+        const back4_G3 = new THREE.Mesh( conegeometry, material_YELLOW );
+        scene.add( back4_G3 );
+        back4_G3.scale.set(25,5, 1.5);
+        back4_G3.rotation.z = -3.14/2;
+        back4_G3.rotation.y = 3.14/2;
+        back4_G3.position.set(-120, -215, 60);
+
+        const back5_G3 = new THREE.Mesh( boxgeometry, material_YELLOW );
+        scene.add( back5_G3 );
+        back5_G3.scale.set(15,35, 5);
+        back5_G3.rotation.z = -3.14/2;
+        back5_G3.rotation.y = 3.14/2;
+        back5_G3.position.set(0, -230, 10);
+
+        const jet1_G3 = new THREE.Mesh( cylindergeometry, material_Bl );
+        scene.add( jet1_G3 );
+        jet1_G3.scale.set(4,10,4);
+        jet1_G3.rotation.y = 3.14/2;
+        jet1_G3.position.set(70, -180, 20);
+
+        const jet2_G3 = new THREE.Mesh( cylindergeometry, material_Bl );
+        scene.add( jet2_G3 );
+        jet2_G3.scale.set(4,10,4);
+        jet2_G3.rotation.y = 3.14/2;
+        jet2_G3.position.set(-70, -180, 20);
+
+        const GetterB = new THREE.Group()
+        GetterB.add(jet1_G3, jet2_G3, back1_G3,body1_G3, body2_G3, wingL_G3, 
+        wingR_G3, cockpit_G3, back1_G3, back2_G3,back3_G3,back4_G3,back5_G3,
+        missileR_G3,missileR2_G3,missileR3_G3,missileL_G3,missileL2_G3,missileL3_G3);
+        GetterB.position.set(1600, 500, 0);
+        GetterB.rotation.z = 3.14/2;
+        GetterB.rotation.x = 3.14+3.14/2;
+        scene.add(GetterB);
 
 
 
