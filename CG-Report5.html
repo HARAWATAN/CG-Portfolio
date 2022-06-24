@@ -23,7 +23,7 @@
         //document.body.appendChild(renderer.domElement);
         renderer.setSize(width, height);
         // 背景の色を設定
-        renderer.setClearColor(0x281a14);
+        renderer.setClearColor(0x008000);
 
         // シーンを作成
         const scene = new THREE.Scene();
@@ -59,6 +59,11 @@
 
       const axisHelper = new THREE.AxisHelper(200,50);
       scene.add(axisHelper);*/
+
+        var textureLoader = new THREE.TextureLoader();  
+        var texture1 = textureLoader.load("neck_gt1.png");
+        var mat_neckGt1 = new THREE.MeshPhongMaterial();
+        mat_neckGt1 = texture1;
 
         const conegeometry = new THREE.ConeGeometry( 5, 20, 32 );
         const boxgeometry = new THREE.BoxGeometry( 5, 5, 5 );
@@ -333,6 +338,30 @@
         GetterB.rotation.x = 3.14+3.14/2;
         scene.add(GetterB);
 
+        const horngeometry = new THREE.ConeGeometry( 5, 20, 4 );
+        const hornR_GT1 = new THREE.Mesh( horngeometry, material);
+        scene.add( hornR_GT1 );
+        hornR_GT1.scale.set(15,15,15);
+        hornR_GT1.rotation.z = -1.08;
+        hornR_GT1.position.set(160, 180, 0);
+
+        const hornL_GT1 = new THREE.Mesh( horngeometry, material);
+        scene.add( hornL_GT1 );
+        hornL_GT1.scale.set(15,15,15);
+        hornL_GT1.rotation.z = 1.08;
+        hornL_GT1.position.set(-160, 180, 0);
+
+        const face_g = new THREE.SphereGeometry(7, 8, 4);
+        const face_GT1 = new THREE.Mesh( face_g, material);
+        scene.add( face_GT1 );
+        face_GT1.scale.set(20,25,18);
+        face_GT1.position.set(0, 50, 0);
+
+        const neck_GT1 = new THREE.Mesh( cylindergeometry, mat_neckGt1 );
+        scene.add( neck_GT1 );
+        neck_GT1.scale.set(10,12,9);
+        neck_GT1.rotation.x = 0.08;
+        neck_GT1.position.set(0, -120, -10);
 
 
         tick();
