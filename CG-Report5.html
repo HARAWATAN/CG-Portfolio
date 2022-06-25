@@ -63,13 +63,15 @@
         var textureLoader = new THREE.TextureLoader();  
         var texture1 = textureLoader.load("neck_gt1.png");
         var texture2 = textureLoader.load("body_gt1.png");
-        //var texture3 = textureLoader.load("leg2_gt1.png");
+        var texture3 = textureLoader.load("face_gt1.png");
         var texture4 = textureLoader.load("leg1_gt1.png");
         var mat_neckGt1 = new THREE.MeshPhongMaterial();
         var mat_bodyGt1 = new THREE.MeshPhongMaterial();
         var mat_leg1Gt1 = new THREE.MeshPhongMaterial();
+        var mat_faceGt1 = new THREE.MeshPhongMaterial();
         mat_neckGt1.map = texture1;
         mat_bodyGt1.map = texture2;
+        mat_faceGt1.map = texture3;
         mat_leg1Gt1.map = texture4;
  
 
@@ -368,7 +370,7 @@
         hornL_GT1.position.set(-160, 180, 0);
 
         const face_g = new THREE.SphereGeometry(7, 8, 4);
-        const face_GT1 = new THREE.Mesh( face_g, material);
+        const face_GT1 = new THREE.Mesh( face_g, mat_faceGt1);
         scene.add( face_GT1 );
         face_GT1.scale.set(20,25,18);
         face_GT1.position.set(0, 50, 0);
