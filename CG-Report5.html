@@ -64,7 +64,6 @@
         var texture1 = textureLoader.load("neck_gt1.png");
         var texture2 = textureLoader.load("body_gt1.png");
         var texture3 = textureLoader.load("face_gt1.png");
-        var texture4 = textureLoader.load("leg1_gt1.png");
         var mat_neckGt1 = new THREE.MeshPhongMaterial();
         var mat_bodyGt1 = new THREE.MeshPhongMaterial();
         var mat_leg1Gt1 = new THREE.MeshPhongMaterial();
@@ -72,7 +71,6 @@
         mat_neckGt1.map = texture1;
         mat_bodyGt1.map = texture2;
         mat_faceGt1.map = texture3;
-        mat_leg1Gt1.map = texture4;
  
 
         const conegeometry = new THREE.ConeGeometry( 5, 20, 32 );
@@ -83,12 +81,19 @@
         const material_YELLOW = new THREE.MeshPhongMaterial( {color: 0xffff00} );
         const material_WH = new THREE.MeshPhongMaterial( {color: 0xffffff} );
         const body1_G1 = new THREE.Mesh( conegeometry, material );
+        var leg1materials = [
+        new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("leg1_gt1.png")}),
+          new THREE.MeshPhongMaterial( {color: 0xFFFFFF} ),
+          new THREE.MeshPhongMaterial( {color: 0xFFFFFF} )
+        ];
         var leg2materials = [
         new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("leg2_gt1.png")}),
-          new THREE.MeshPhongMaterial( {color: 0xFF0000} ),
-          new THREE.MeshPhongMaterial( {color: 0xFF0000} )
+          new THREE.MeshPhongMaterial( {color: 0xFFFFFF} ),
+          new THREE.MeshPhongMaterial( {color: 0xFFFFFF} )
         ];
+        var mat_leg1Gt1 = new THREE.MeshFaceMaterial(leg1materials);
         var mat_leg2Gt1 = new THREE.MeshFaceMaterial(leg2materials);
+
 
 
         scene.add( body1_G1 );
@@ -373,6 +378,7 @@
         const face_GT1 = new THREE.Mesh( face_g, mat_faceGt1);
         scene.add( face_GT1 );
         face_GT1.scale.set(20,25,18);
+        face_GT1.rotation.x = 3.14;
         face_GT1.position.set(0, 50, 0);
 
         const neck_GT1 = new THREE.Mesh( cylindergeometry, mat_neckGt1 );
@@ -462,6 +468,8 @@
         scene.add( leg1R_GT1 );
         leg1R_GT1.scale.set(10,30,10);
         leg1R_GT1.rotation.z = 0.61;
+        leg1R_GT1.rotation.x = 3.14;
+        leg1R_GT1.rotation.y = 3.14;
         leg1R_GT1.position.set(200, -950, -10);
 
         const leg2R_GT1 = new THREE.Mesh( bodyGJ, material_Bl);
