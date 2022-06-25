@@ -492,6 +492,16 @@
         leg3L_GT1.rotation.z = -0.34;
         leg3L_GT1.position.set(-410, -1330, -10);
 
+        const shoesR_GT1 = new THREE.Mesh( bodyGJ, material);
+        scene.add( shoesR_GT1 );
+        shoesR_GT1.scale.set(25,12,40);
+        shoesR_GT1.position.set(530, -1600, 20);
+
+        const shoesL_GT1 = new THREE.Mesh( bodyGJ, material);
+        scene.add( shoesL_GT1 );
+        shoesL_GT1.scale.set(25,12,40);
+        shoesL_GT1.position.set(-530, -1600, 20);
+
 
         tick();
         // 毎フレーム時に実行されるループイベントです
