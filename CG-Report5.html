@@ -84,7 +84,7 @@
         var leg1materials = [
         new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("leg1_gt1.png")}),
           new THREE.MeshPhongMaterial( {color: 0xFFFFFF} ),
-          new THREE.MeshPhongMaterial( {color: 0xFFFFFF} )
+          new THREE.MeshPhongMaterial( {color: 0xFF0000} )
         ];
         var leg2materials = [
         new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("leg2_gt1.png")}),
@@ -468,8 +468,8 @@
         scene.add( leg1R_GT1 );
         leg1R_GT1.scale.set(10,30,10);
         leg1R_GT1.rotation.z = 0.61;
-        leg1R_GT1.rotation.x = 3.14;
-        leg1R_GT1.rotation.y = -3.14;
+        //leg1R_GT1.rotation.x = 3.14;
+        leg1R_GT1.rotation.y = 3.14*2;
         leg1R_GT1.position.set(200, -950, -10);
 
         const leg2R_GT1 = new THREE.Mesh( bodyGJ, material_Bl);
