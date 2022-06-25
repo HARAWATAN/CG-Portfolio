@@ -62,8 +62,11 @@
 
         var textureLoader = new THREE.TextureLoader();  
         var texture1 = textureLoader.load("neck_gt1.png");
+        var texture2 = textureLoader.load("body_gt1.png");
         var mat_neckGt1 = new THREE.MeshPhongMaterial();
+        var mat_bodyGt1 = new THREE.MeshPhongMaterial();
         mat_neckGt1.map = texture1;
+        mat_bodyGt1.map = texture2;
 
         const conegeometry = new THREE.ConeGeometry( 5, 20, 32 );
         const boxgeometry = new THREE.BoxGeometry( 5, 5, 5 );
@@ -363,7 +366,7 @@
         neck_GT1.rotation.x = 0.08;
         neck_GT1.position.set(0, -120, -10);
 
-        const body_GT1 = new THREE.Mesh( bodyGJ, material_WH );
+        const body_GT1 = new THREE.Mesh( bodyGJ, mat_bodyGt1 );
         scene.add( body_GT1 );
         body_GT1.scale.set(35,60, 30);
         body_GT1.position.set(0, -570, -20);
