@@ -82,17 +82,26 @@
         const material_WH = new THREE.MeshPhongMaterial( {color: 0xffffff} );
         const body1_G1 = new THREE.Mesh( conegeometry, material );
         var leg1materials = [
-        new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("leg1_gt1.png")}),
-          new THREE.MeshPhongMaterial( {color: 0xFFFFFF} ),
-          new THREE.MeshPhongMaterial( {color: 0xFF0000} )
-        ];
-        var leg2materials = [
-        new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("leg2_gt1.png")}),
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("leg1_gt1.png")}),
           new THREE.MeshPhongMaterial( {color: 0xFFFFFF} ),
           new THREE.MeshPhongMaterial( {color: 0xFFFFFF} )
         ];
+        var leg2materials = [
+          new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("leg2_gt1.png")}),
+          new THREE.MeshPhongMaterial( {color: 0xFFFFFF} ),
+          new THREE.MeshPhongMaterial( {color: 0xFFFFFF} )
+        ];
+        var armormaaterials = [
+        new THREE.MeshPhongMaterial( {color: 0xFF0000} ),
+        new THREE.MeshPhongMaterial( {color: 0xFF0000} ),
+        new THREE.MeshPhongMaterial( {color: 0xFF0000} ),
+        new THREE.MeshPhongMaterial( {color: 0xFF0000} ),
+        new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("armor_gt1.png")}),
+        new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("armor_gt1.png")})
+        ];
         var mat_leg1Gt1 = new THREE.MeshFaceMaterial(leg1materials);
         var mat_leg2Gt1 = new THREE.MeshFaceMaterial(leg2materials);
+        var mat_armorGt1 = new THREE.MeshFaceMaterial(armormaaterials);
 
 
 
@@ -392,13 +401,13 @@
         body_GT1.scale.set(40,60, 30);
         body_GT1.position.set(0, -570, -20);
 
-        const armor1_GT1 = new THREE.Mesh( boxgeometry, material);
+        const armor1_GT1 = new THREE.Mesh( boxgeometry, mat_armorGt1);
         scene.add( armor1_GT1 );
         armor1_GT1.scale.set(100,50,5);
         armor1_GT1.rotation.x = -0.61;
         armor1_GT1.position.set(0, -280, 125);
 
-        const armor2_GT1 = new THREE.Mesh( boxgeometry, material);
+        const armor2_GT1 = new THREE.Mesh( boxgeometry, mat_armorGt1);
         scene.add( armor2_GT1 );
         armor2_GT1.scale.set(100,50,5);
         armor2_GT1.rotation.x = 0.61;
