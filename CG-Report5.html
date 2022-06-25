@@ -434,8 +434,9 @@
 
         const handR_GT1 = new THREE.Mesh( bodyGJ, material);
         scene.add( handR_GT1 );
-        handR_GT1.scale.set(10,10,10);
-        handR_GT1.position.set(600, -770, -10);
+        handR_GT1.scale.set(8,15,10);
+        handR_GT1.rotation.z = 0.61/2;
+        handR_GT1.position.set(590, -770, -10);
 
         const arm1L_GT1 = new THREE.Mesh( armorgeometry, material_WH);
         scene.add( arm1L_GT1 );
@@ -451,8 +452,9 @@
 
         const handL_GT1 = new THREE.Mesh( bodyGJ, material);
         scene.add( handL_GT1 );
-        handL_GT1.scale.set(10,10,10);
-        handL_GT1.position.set(-600, -770, -10);
+        handL_GT1.scale.set(8,15,10);
+        handL_GT1.rotation.z = -0.61/2;
+        handL_GT1.position.set(-600, -760, -10);
 
         const leg1R_GT1 = new THREE.Mesh( armorgeometry, mat_leg1Gt1);
         scene.add( leg1R_GT1 );
@@ -462,7 +464,7 @@
 
         const leg2R_GT1 = new THREE.Mesh( bodyGJ, material_Bl);
         scene.add( leg2R_GT1 );
-        leg2R_GT1.scale.set(10,10,10);
+        leg2R_GT1.scale.set(10,20,10);
         leg2R_GT1.rotation.z = 0.61;
         leg2R_GT1.position.set(300, -1100, -10);
 
@@ -470,7 +472,15 @@
         scene.add( leg3R_GT1 );
         leg3R_GT1.scale.set(15,40,15);
         leg3R_GT1.rotation.z = 0.34;
+        leg3R_GT1.rotation.x = 3.14;
+        leg3R_GT1.rotation.y = 3.14;
         leg3R_GT1.position.set(380, -1330, -10);
+
+        const leg4R_GT1 = new THREE.Mesh( bodyGJ, material_Bl);
+        scene.add( leg4R_GT1 );
+        leg4R_GT1.scale.set(15,20,15);
+        leg4R_GT1.rotation.z = 0.61;
+        leg4R_GT1.position.set(450, -1500, -10);
 
         const leg1L_GT1 = new THREE.Mesh( armorgeometry, mat_leg1Gt1);
         scene.add( leg1L_GT1 );
@@ -482,7 +492,7 @@
 
         const leg2L_GT1 = new THREE.Mesh( bodyGJ, material_Bl);
         scene.add( leg2L_GT1 );
-        leg2L_GT1.scale.set(10,10,10);
+        leg2L_GT1.scale.set(10,20,10);
         leg2L_GT1.rotation.z = -0.61;
         leg2L_GT1.position.set(-300, -1100, -10);
 
@@ -490,17 +500,25 @@
         scene.add( leg3L_GT1 );
         leg3L_GT1.scale.set(15,40,15);
         leg3L_GT1.rotation.z = -0.34;
+        leg3L_GT1.rotation.x = 3.14;
+        leg3L_GT1.rotation.y = 3.14;
         leg3L_GT1.position.set(-410, -1330, -10);
+
+        const leg4L_GT1 = new THREE.Mesh( bodyGJ, material_Bl);
+        scene.add( leg4L_GT1 );
+        leg4L_GT1.scale.set(15,20,15);
+        leg4L_GT1.rotation.z = -0.61;
+        leg4L_GT1.position.set(-480, -1500, -10);
 
         const shoesR_GT1 = new THREE.Mesh( bodyGJ, material);
         scene.add( shoesR_GT1 );
-        shoesR_GT1.scale.set(25,12,40);
-        shoesR_GT1.position.set(530, -1600, 20);
+        shoesR_GT1.scale.set(20,15,40);
+        shoesR_GT1.position.set(530, -1620, 20);
 
         const shoesL_GT1 = new THREE.Mesh( bodyGJ, material);
         scene.add( shoesL_GT1 );
-        shoesL_GT1.scale.set(25,12,40);
-        shoesL_GT1.position.set(-530, -1600, 20);
+        shoesL_GT1.scale.set(20,15,40);
+        shoesL_GT1.position.set(-530, -1620, 40);
 
 
         tick();
