@@ -675,6 +675,7 @@
             if(tmr > 200)
             {
               F1 = 2;
+              tmr = 0;
             }
             tmr++;
           }
@@ -736,7 +737,18 @@
               handL_GT1.position.y = F1hly+30;
               handL_GT1.position.z = F1hlz+110;
             }
+          }
+          else if(F1 == 3)
+          {
+            GTbeam1.scale.set(7+1*tmr, 7+0.25*tmr, 7+1*tmr);
+            GTbeam1.position.x -= 1.5*tmr;
+            tmr++;
+            if(tmr > 100) F2 = 1;
+          }
 
+          if(F2 == 1)
+          {
+            
           }
 
           
