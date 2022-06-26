@@ -54,11 +54,11 @@
 
 
         // helper
-      /*const gridHelper = new THREE.GridHelper(200,50); // size, step
+      const gridHelper = new THREE.GridHelper(200,50); // size, step
       scene.add(gridHelper);
 
       const axisHelper = new THREE.AxisHelper(200,50);
-      scene.add(axisHelper);*/
+      scene.add(axisHelper);
 
         var textureLoader = new THREE.TextureLoader();  
         var texture1 = textureLoader.load("neck_gt1.png");
@@ -172,7 +172,7 @@
         GetterE.position.set(100, 500, 0);
         GetterE.rotation.z = 3.14/2;
         GetterE.rotation.x = 3.14+3.14/2;
-        GetterE.scale.set(0.8,1,0.8)
+        GetterE.scale.set(0.5,0.5,0.5)
         scene.add(GetterE);
 
         const material_GJ = new THREE.MeshPhongMaterial( {color: 0x95949a} );
@@ -244,9 +244,10 @@
 
         const GetterJ = new THREE.Group()
         GetterJ.add(jet1_G2, jet2_G2, back1_G2,body1_G2, body2_G2, body3_G2, body4_G2, body5_G2,wingL_G2, wingR_G2, cockpit_G2);
-        GetterJ.position.set(800, 500, 0);
+        GetterJ.position.set(600, 500, 0);
         GetterJ.rotation.z = 3.14/2;
         GetterJ.rotation.x = 3.14+3.14/2;
+        GetterJ.scale.set(0.5, 0.5, 0.5);
         scene.add(GetterJ);
 
         const body1_G3 = new THREE.Mesh( cylindergeometry, material_YELLOW );
@@ -365,9 +366,10 @@
         GetterB.add(jet1_G3, jet2_G3, back1_G3,body1_G3, body2_G3, wingL_G3, 
         wingR_G3, cockpit_G3, back1_G3, back2_G3,back3_G3,back4_G3,back5_G3,
         missileR_G3,missileR2_G3,missileR3_G3,missileL_G3,missileL2_G3,missileL3_G3);
-        GetterB.position.set(1600, 500, 0);
+        GetterB.position.set(1000, 500, 0);
         GetterB.rotation.z = 3.14/2;
         GetterB.rotation.x = 3.14+3.14/2;
+        GetterB.scale.set(0.5, 0.5, 0.5);
         scene.add(GetterB);
 
         const horngeometry = new THREE.ConeGeometry( 5, 20, 4 );
@@ -539,6 +541,47 @@
         shoesL_GT1.scale.set(20,15,40);
         shoesL_GT1.position.set(-530, -1620, 40);
 
+        const armR_GT1 = new THREE.Group()
+        armR_GT1.add(arm1R_GT1, arm2R_GT1, handR_GT1);
+        
+
+        const armL_GT1 = new THREE.Group()
+        armL_GT1.add(arm1L_GT1, arm2L_GT1, handL_GT1);
+
+        const legR_GT1 = new THREE.Group()
+        legR_GT1.add(leg1R_GT1, leg2R_GT1, leg3R_GT1, leg4R_GT1, shoesR_GT1);
+
+        const legL_GT1 = new THREE.Group()
+        legR_GT1.add(leg1L_GT1, leg2L_GT1, leg3L_GT1, leg4L_GT1, shoesL_GT1);
+
+        const body_Gt1 = new THREE.Group()
+        body_Gt1.add(neck_GT1, body_GT1, armor1_GT1, armor2_GT1, armor3_GT1, armor4_GT1);
+
+        const face_Gt1 = new THREE.Group()
+        face_Gt1.add(hornR_GT1, hornL_GT1, face_GT1);
+
+        const Getter1 = new THREE.Group()
+        Getter1.add(armR_GT1, armL_GT1, legR_GT1, legL_GT1, body_Gt1, face_Gt1, shoulderR_GT1, shoulderL_GT1);
+
+        Getter1.position.set(100, 500, 200);
+        //Getter1.rotation.z = 3.14/2;
+        Getter1.rotation.y = 3.14+3.14/2;
+        Getter1.scale.set(0.4, 0.4, 0.4);
+        Getter1.position.set(0, 100, 0);
+        scene.add(Getter1);
+        var F1y = arm1R_GT1.position.y;
+        var F1hrx = handR_GT1.position.x;
+        var F1hry = handR_GT1.position.y;
+        var F1hrz = handR_GT1.position.z;
+        var F1hlx = handL_GT1.position.x;
+        var F1hly = handL_GT1.position.y;
+        var F1hlz = handL_GT1.position.z;
+
+        /*arm1R_GT1.rotation.z = 3.14/2;
+        arm1R_GT1.rotation.y = -3.14/4;
+        arm1R_GT1.position.x -= 100;
+        arm1R_GT1.position.y += 150;
+        arm1R_GT1.position.z += 80;*/
 
         tick();
         // 毎フレーム時に実行されるループイベントです
@@ -546,6 +589,123 @@
           // レンダリング
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
+          
+          if(F1 == 0)
+          {
+            arm1R_GT1.rotation.y += -0.01;
+            arm1R_GT1.position.x -= 0.6;
+            arm1R_GT1.position.y += 1;
+            arm1R_GT1.position.z += 0.5;
+            arm2R_GT1.position.x -= 0.7;
+            arm2R_GT1.position.y += 1.4;
+            arm2R_GT1.position.z += 1.5;
+            arm1L_GT1.rotation.y += 0.01;
+            arm1L_GT1.position.x += 0.6;
+            arm1L_GT1.position.y += 1;
+            arm1L_GT1.position.z += 0.5;
+            arm2L_GT1.position.x += 0.7;
+            arm2L_GT1.position.y += 1.4;
+            arm2L_GT1.position.z += 1.5;
+            if(arm1R_GT1.position.y < shoulderR_GT1.position.y-75)
+            {
+              handR_GT1.position.y += 3.5;
+              handR_GT1.position.z = arm2R_GT1.position.z;
+              handL_GT1.position.y += 3.5;
+              handL_GT1.position.z = arm2L_GT1.position.z;
+            }
+            else if(arm1R_GT1.position.y < shoulderR_GT1.position.y-100)
+            {
+              handR_GT1.position.y += 1.5;
+              handR_GT1.position.z = arm2R_GT1.position.z;
+              handL_GT1.position.y += 1.5;
+              handL_GT1.position.z = arm2L_GT1.position.z;
+            }
+            else
+            {
+              handR_GT1.position.y += 3.5;
+              handR_GT1.position.z = arm2R_GT1.position.z+90;
+              handL_GT1.position.y += 3.5;
+              handL_GT1.position.z = arm2R_GT1.position.z+90;
+            }
+            
+            handR_GT1.position.x = arm2R_GT1.position.x;
+            arm2R_GT1.rotation.x += -0.02;
+            arm2R_GT1.rotation.z += -0.005;
+            handR_GT1.rotation.x += -0.02;
+            handR_GT1.rotation.z += -0.002;
+            handL_GT1.position.x = arm2L_GT1.position.x;
+            arm2L_GT1.rotation.x += -0.02;
+            arm2L_GT1.rotation.z += 0.005;
+            handL_GT1.rotation.x += -0.02;
+            handL_GT1.rotation.z += 0.002;
+            if(arm1R_GT1.position.y+1 > shoulderR_GT1.position.y-50)
+            {
+              F1 = 1;
+
+            }
+
+          }
+          if(F1 == 2)
+          {
+            arm1R_GT1.rotation.y -= -0.01;
+            arm1R_GT1.position.x += 0.6;
+            arm1R_GT1.position.y -= 1;
+            arm1R_GT1.position.z -= 0.5;
+            arm2R_GT1.position.x += 0.7;
+            arm2R_GT1.position.y -= 1.4;
+            arm2R_GT1.position.z -= 1.5;
+            arm1L_GT1.rotation.y -= 0.01;
+            arm1L_GT1.position.x -= 0.6;
+            arm1L_GT1.position.y -= 1;
+            arm1L_GT1.position.z -= 0.5;
+            arm2L_GT1.position.x -= 0.7;
+            arm2L_GT1.position.y -= 1.4;
+            arm2L_GT1.position.z -= 1.5;
+            if(arm1R_GT1.position.y > shoulderR_GT1.position.y-75)
+            {
+              handR_GT1.position.y -= 3.5;
+              handR_GT1.position.z = arm2R_GT1.position.z;
+              handL_GT1.position.y -= 3.5;
+              handL_GT1.position.z = arm2L_GT1.position.z;
+            }
+            else if(arm1R_GT1.position.y > shoulderR_GT1.position.y-100)
+            {
+              handR_GT1.position.y -= 1.5;
+              handR_GT1.position.z = arm2R_GT1.position.z;
+              handL_GT1.position.y -= 1.5;
+              handL_GT1.position.z = arm2L_GT1.position.z;
+            }
+            else
+            {
+              handR_GT1.position.y -= 3.5;
+              handR_GT1.position.z = arm2R_GT1.position.z-10;
+              handL_GT1.position.y -= 3.5;
+              handL_GT1.position.z = arm2R_GT1.position.z-10;
+            }
+            
+            handR_GT1.position.x = arm2R_GT1.position.x;
+            arm2R_GT1.rotation.x -= -0.02;
+            arm2R_GT1.rotation.z -= -0.005;
+            handR_GT1.rotation.x -= -0.02;
+            handR_GT1.rotation.z -= -0.002;
+            handL_GT1.position.x = arm2L_GT1.position.x;
+            arm2L_GT1.rotation.x -= -0.02;
+            arm2L_GT1.rotation.z -= 0.005;
+            handL_GT1.rotation.x -= -0.02;
+            handL_GT1.rotation.z -= 0.002;
+            if(arm1R_GT1.position.y < F1y)
+            {
+              F1 = 3;
+              handR_GT1.position.x = F1hrx;
+              handR_GT1.position.y = F1hry;
+              handR_GT1.position.z = F1hrz;
+              handL_GT1.position.x = F1hlx;
+              handL_GT1.position.y = F1hly;
+              handL_GT1.position.z = F1hlz;
+            }
+
+          }
+
           
           }
       }
