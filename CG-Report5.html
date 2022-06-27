@@ -569,7 +569,6 @@
         Getter1.add(armR_GT1, armL_GT1, legR_GT1, legL_GT1, body_Gt1, face_Gt1, shoulderR_GT1, shoulderL_GT1);
 
         Getter1.position.set(100, 500, 200);
-        //Getter1.rotation.z = 3.14/2;
         Getter1.rotation.y = 3.14+3.14/2;
         Getter1.scale.set(0.4, 0.4, 0.4);
         Getter1.position.set(0, -10000, 0);
@@ -617,6 +616,7 @@
           {
             GetterE.position.x += 1;
             GetterB.position.x -= 1;
+            GTbeam1.scale.set(1, 1, 1);
             if(tmr > 300)
             {
               Chenge.position.set(0, 0, 0);
@@ -833,8 +833,22 @@
             }
             else if(tmr > 500)
             {
-              F1 = 1;
+              F1 = 0;
+              F2 = 0;
               tmr = 0;
+              tmr2 = 0;
+              GetterE.position.set(-600, 100, 0);
+              GetterJ.position.set(0, 100, 0);
+              GetterB.position.set(600, 100, 0);
+
+              GetterB.rotation.z -= 3.14/2+3.14/4+1.57;
+              GetterB.rotation.x -= 3.14-1.57;
+              GetterB.rotation.y = -(0.78*2+3.14)+1.57;
+              GetterE.rotation.x -= 0.78;
+              GetterE.rotation.z += 3.14;
+              GetterJ.rotation.x -= 0.78;
+              armR_GT1.position.y = 0;
+              armL_GT1.position.y = 0;
             }
             else
             {
