@@ -614,10 +614,10 @@
           
           if(F1 == 0)
           {
-            GetterE.position.x += 1;
-            GetterB.position.x -= 1;
-            GTbeam1.scale.set(1, 1, 1);
-            if(tmr > 300)
+            GetterE.position.x += 5;
+            GetterB.position.x -= 5;
+            GTbeam1.scale.set(7, 7, 7);
+            if(tmr > 60)
             {
               Chenge.position.set(0, 0, 0);
               Chenge.scale.set(400,400,400);
@@ -626,7 +626,7 @@
               GetterB.position.set(0, -10000, 0);
               tmr2++;
             }
-            if(tmr2 > 60)
+            if(tmr2 > 30)
             {
               F1 = 1;
               tmr = 0;
@@ -638,52 +638,52 @@
           else if(F1 == 1)
           {
             Getter1.position.set(0, 100, 0);
-            arm1R_GT1.rotation.y += -0.01;
-            arm1R_GT1.position.x -= 0.6;
-            arm1R_GT1.position.y += 1;
-            arm1R_GT1.position.z += 0.5;
-            arm2R_GT1.position.x -= 0.7;
-            arm2R_GT1.position.y += 1.4;
-            arm2R_GT1.position.z += 1.5;
-            arm1L_GT1.rotation.y += 0.01;
-            arm1L_GT1.position.x += 0.6;
-            arm1L_GT1.position.y += 1;
-            arm1L_GT1.position.z += 0.5;
-            arm2L_GT1.position.x += 0.7;
-            arm2L_GT1.position.y += 1.4;
-            arm2L_GT1.position.z += 1.5;
+            arm1R_GT1.rotation.y += -0.01*4;
+            arm1R_GT1.position.x -= 0.6*4;
+            arm1R_GT1.position.y += 1*4;
+            arm1R_GT1.position.z += 0.5*4;
+            arm2R_GT1.position.x -= 0.7*4;
+            arm2R_GT1.position.y += 1.4*4;
+            arm2R_GT1.position.z += 1.5*4;
+            arm1L_GT1.rotation.y += 0.01*4;
+            arm1L_GT1.position.x += 0.6*4;
+            arm1L_GT1.position.y += 1*4;
+            arm1L_GT1.position.z += 0.5*4;
+            arm2L_GT1.position.x += 0.7*4;
+            arm2L_GT1.position.y += 1.4*4;
+            arm2L_GT1.position.z += 1.5*4;
             if(arm1R_GT1.position.y < shoulderR_GT1.position.y-75)
             {
-              handR_GT1.position.y += 3.5;
+              handR_GT1.position.y += 3.5*4;
               handR_GT1.position.z = arm2R_GT1.position.z;
-              handL_GT1.position.y += 3.5;
+              handL_GT1.position.y += 3.5*4;
               handL_GT1.position.z = arm2L_GT1.position.z;
             }
             else if(arm1R_GT1.position.y < shoulderR_GT1.position.y-100)
             {
-              handR_GT1.position.y += 1.5;
+              handR_GT1.position.y += 1.5*4;
               handR_GT1.position.z = arm2R_GT1.position.z;
-              handL_GT1.position.y += 1.5;
+              handL_GT1.position.y += 1.5*4;
               handL_GT1.position.z = arm2L_GT1.position.z;
             }
             else
             {
-              handR_GT1.position.y += 3.5;
+              handR_GT1.position.y += 3.5*4;
               handR_GT1.position.z = arm2R_GT1.position.z+90;
-              handL_GT1.position.y += 3.5;
+              handL_GT1.position.y += 3.5*4;
               handL_GT1.position.z = arm2R_GT1.position.z+90;
             }
             
             handR_GT1.position.x = arm2R_GT1.position.x;
-            arm2R_GT1.rotation.x += -0.02;
-            arm2R_GT1.rotation.z += -0.005;
-            handR_GT1.rotation.x += -0.02;
-            handR_GT1.rotation.z += -0.002;
+            arm2R_GT1.rotation.x += -0.02*4;
+            arm2R_GT1.rotation.z += -0.005*4;
+            handR_GT1.rotation.x += -0.02*4;
+            handR_GT1.rotation.z += -0.002*4;
             handL_GT1.position.x = arm2L_GT1.position.x;
-            arm2L_GT1.rotation.x += -0.02;
-            arm2L_GT1.rotation.z += 0.005;
-            handL_GT1.rotation.x += -0.02;
-            handL_GT1.rotation.z += 0.002;
+            arm2L_GT1.rotation.x += -0.02*4;
+            arm2L_GT1.rotation.z += 0.005*4;
+            handL_GT1.rotation.x += -0.02*4;
+            handL_GT1.rotation.z += 0.002*4;
             if(arm1R_GT1.position.y+1 > shoulderR_GT1.position.y-50)
             {
               F1 = 2;
@@ -703,7 +703,7 @@
               GTbeam2.position.set(0, -10000, 0);
               GTbeam1.position.set(body_Gt1.position.x-50, body_Gt1.position.y-150, body_Gt1.position.z);
             }
-            if(tmr > 200)
+            if(tmr > 100)
             {
               F1 = 3;
               tmr = 0;
@@ -712,52 +712,52 @@
           }
           else if(F1 == 3)
           {
-            arm1R_GT1.rotation.y -= -0.01*4;
-            arm1R_GT1.position.x += 0.6*4;
-            arm1R_GT1.position.y -= 1*4;
-            arm1R_GT1.position.z -= 0.5*4;
-            arm2R_GT1.position.x += 0.7*4;
-            arm2R_GT1.position.y -= 1.4*4;
-            arm2R_GT1.position.z -= 1.5*4;
-            arm1L_GT1.rotation.y -= 0.01*4;
-            arm1L_GT1.position.x -= 0.6*4;
-            arm1L_GT1.position.y -= 1*4;
-            arm1L_GT1.position.z -= 0.5*4;
-            arm2L_GT1.position.x -= 0.7*4;
-            arm2L_GT1.position.y -= 1.4*4;
-            arm2L_GT1.position.z -= 1.5*4;
+            arm1R_GT1.rotation.y -= -0.01*7;
+            arm1R_GT1.position.x += 0.6*7;
+            arm1R_GT1.position.y -= 1*7;
+            arm1R_GT1.position.z -= 0.5*7;
+            arm2R_GT1.position.x += 0.7*7;
+            arm2R_GT1.position.y -= 1.4*7;
+            arm2R_GT1.position.z -= 1.5*7;
+            arm1L_GT1.rotation.y -= 0.01*7;
+            arm1L_GT1.position.x -= 0.6*7;
+            arm1L_GT1.position.y -= 1*7;
+            arm1L_GT1.position.z -= 0.5*7;
+            arm2L_GT1.position.x -= 0.7*7;
+            arm2L_GT1.position.y -= 1.4*7;
+            arm2L_GT1.position.z -= 1.5*7;
             if(arm1R_GT1.position.y > shoulderR_GT1.position.y-75)
             {
-              handR_GT1.position.y -= 3.5*4;
+              handR_GT1.position.y -= 3.5*7;
               handR_GT1.position.z = arm2R_GT1.position.z;
-              handL_GT1.position.y -= 3.5*4;
+              handL_GT1.position.y -= 3.5*7;
               handL_GT1.position.z = arm2L_GT1.position.z;
             }
             else if(arm1R_GT1.position.y > shoulderR_GT1.position.y-100)
             {
-              handR_GT1.position.y -= 1.5*4;
+              handR_GT1.position.y -= 1.5*7;
               handR_GT1.position.z = arm2R_GT1.position.z;
-              handL_GT1.position.y -= 1.5*4;
+              handL_GT1.position.y -= 1.5*7;
               handL_GT1.position.z = arm2L_GT1.position.z;
             }
             else
             {
-              handR_GT1.position.y -= 3.5*4;
+              handR_GT1.position.y -= 3.5*7;
               handR_GT1.position.z = arm2R_GT1.position.z-10;
-              handL_GT1.position.y -= 3.5*4;
+              handL_GT1.position.y -= 3.5*7;
               handL_GT1.position.z = arm2R_GT1.position.z-10;
             }
             
             handR_GT1.position.x = arm2R_GT1.position.x;
-            arm2R_GT1.rotation.x -= -0.02*4;
-            arm2R_GT1.rotation.z -= -0.005*4;
-            handR_GT1.rotation.x -= -0.02*4;
-            handR_GT1.rotation.z -= -0.002*4;
+            arm2R_GT1.rotation.x -= -0.02*7;
+            arm2R_GT1.rotation.z -= -0.005*7;
+            handR_GT1.rotation.x -= -0.02*7;
+            handR_GT1.rotation.z -= -0.002*7;
             handL_GT1.position.x = arm2L_GT1.position.x;
-            arm2L_GT1.rotation.x -= -0.02*4;
-            arm2L_GT1.rotation.z -= 0.005*4;
-            handL_GT1.rotation.x -= -0.02*4;
-            handL_GT1.rotation.z -= 0.002*4;
+            arm2L_GT1.rotation.x -= -0.02*7;
+            arm2L_GT1.rotation.z -= 0.005*7;
+            handL_GT1.rotation.x -= -0.02*7;
+            handL_GT1.rotation.z -= 0.002*7;
             if(arm1R_GT1.position.y < F1ry)
             {
               F1 = 4;
@@ -771,8 +771,8 @@
           }
           else if(F1 == 4)
           {
-            GTbeam1.scale.set(7+2*tmr, 7+0.1*tmr, 7+0.1*tmr);
-            GTbeam1.position.x -= 1.5*tmr;
+            GTbeam1.scale.set(7+3*tmr, 7+0.3*tmr, 7+0.3*tmr);
+            GTbeam1.position.x -= 4.5*tmr;
             tmr++;
             if(tmr > 100)
             {
@@ -803,7 +803,20 @@
             handL_GT1.position.y = F1hly;
             handL_GT1.position.z = F1hlz;
             Chenge.position.set(0,0,0);
+            if(camera.position.x+camera.position.y+camera.position.z >= 1000)
+            {
+              Chenge.scale.set(400,400,400);
+            }
+            else if(camera.position.x+camera.position.y+camera.position.z >= 800)
+            {
+              Chenge.scale.set(300,300,300);
+            }
+
             Chenge.scale.set(400,400,400);
+            //Chenge.scale.set(300,300,300);
+            //Chenge.scale.set(200,200,200);
+            //Chenge.scale.set(100,100,100);
+
             tmr++;
             if(tmr > 30)
             {
@@ -831,7 +844,7 @@
               GetterJ.position.set(-500, 100, 0);
               GetterJ.rotation.x = -0.78;
             }
-            else if(tmr > 500)
+            else if(tmr > 300)
             {
               F1 = 0;
               F2 = 0;
