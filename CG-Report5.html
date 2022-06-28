@@ -20,7 +20,8 @@
 
         // レンダラーを作成
         const renderer = new THREE.WebGLRenderer({
-          canvas: document.querySelector('#myCanvas')
+          canvas: document.querySelector('#myCanvas'),
+          alpha: true
         });
         //document.body.appendChild(renderer.domElement);
         renderer.setSize(width, height);
@@ -72,7 +73,11 @@
         var mat_bodyGt1 = new THREE.MeshPhongMaterial();
         var mat_leg1Gt1 = new THREE.MeshPhongMaterial();
         var mat_faceGt1 = new THREE.MeshPhongMaterial();
-        var mat_beam = new THREE.MeshPhongMaterial();
+        var mat_beam = new THREE.MeshPhongMaterial({
+          opacity: 0.7,
+          transparent: true,
+          depthTest: false
+        });
         mat_neckGt1.map = texture1;
         mat_bodyGt1.map = texture2;
         mat_faceGt1.map = texture3;
@@ -579,6 +584,10 @@
         scene.add( GTbeam1 );
         GTbeam1.position.set(0, -10000, 0);
         GTbeam1.scale.set(7, 7, 7);
+        opacity = 0.7;
+        transparent = true;
+        depthTest = false;
+
 
         const GTbeam2 = new THREE.Mesh( bodyGJ, mat_beam);
         scene.add( GTbeam2 );
