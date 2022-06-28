@@ -21,6 +21,7 @@
         // レンダラーを作成
         const renderer = new THREE.WebGLRenderer({
           canvas: document.querySelector('#myCanvas'),
+          antialias: true,
           alpha: true
         });
         //document.body.appendChild(renderer.domElement);
@@ -74,7 +75,7 @@
         var mat_leg1Gt1 = new THREE.MeshPhongMaterial();
         var mat_faceGt1 = new THREE.MeshPhongMaterial();
         var mat_beam = new THREE.MeshPhongMaterial({
-          opacity: 0.7,
+          opacity: 0.8,
           transparent: true,
           depthTest: false
         });
