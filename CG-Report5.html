@@ -599,6 +599,19 @@
         scene.add( Chenge );
         Chenge.position.set(0, -10000, 0);
 
+        const Chenge2 = new THREE.Mesh( boxgeometry, material_WH);
+        scene.add( Chenge2 );
+        Chenge2.position.set(0, -10000, 0);
+
+        const Chenge3 = new THREE.Mesh( boxgeometry, material_WH);
+        scene.add( Chenge3 );
+        Chenge3.position.set(0, -10000, 0);
+
+        const Chenge4 = new THREE.Mesh( boxgeometry, material_WH);
+        scene.add( Chenge4 );
+        Chenge4.position.set(0, -10000, 0);
+
+
         //F1 = 0;
 
         var F1ry = arm1R_GT1.position.y;
@@ -610,11 +623,6 @@
         var F1hly = handL_GT1.position.y;
         var F1hlz = handL_GT1.position.z;
 
-        /*arm1R_GT1.rotation.z = 3.14/2;
-        arm1R_GT1.rotation.y = -3.14/4;
-        arm1R_GT1.position.x -= 100;
-        arm1R_GT1.position.y += 150;
-        arm1R_GT1.position.z += 80;*/
 
         tick();
         // 毎フレーム時に実行されるループイベントです
@@ -630,8 +638,14 @@
             GTbeam1.scale.set(7, 7, 7);
             if(tmr > 60)
             {
-              Chenge.position.set(0, 0, 0);
+              Chenge.position.set(0,0,0);
+              Chenge2.position.set(0,0,0);
+              Chenge3.position.set(0,0,0);
+              Chenge3.position.set(0,0,0);
               Chenge.scale.set(400,400,400);
+              Chenge2.scale.set(300,300,300);
+              Chenge3.scale.set(200,200,200);
+              Chenge4.scale.set(100,100,100);
               GetterE.position.set(0, -10000, 0);
               GetterJ.position.set(0, -10000, 0);
               GetterB.position.set(0, -10000, 0);
@@ -643,6 +657,12 @@
               tmr = 0;
               Chenge.position.set(0,-10000,0);
               Chenge.scale.set(1,1,1);
+              Chenge2.position.set(0,-10000,0);
+              Chenge2.scale.set(1,1,1);
+              Chenge3.position.set(0,-10000,0);
+              Chenge3.scale.set(1,1,1);
+              Chenge4.position.set(0,-10000,0);
+              Chenge4.scale.set(1,1,1);
             }
             tmr++;
           }
@@ -814,10 +834,13 @@
             handL_GT1.position.y = F1hly;
             handL_GT1.position.z = F1hlz;
             Chenge.position.set(0,0,0);
+            Chenge2.position.set(0,0,0);
+            Chenge3.position.set(0,0,0);
+            Chenge3.position.set(0,0,0);
             Chenge.scale.set(400,400,400);
-            //Chenge.scale.set(300,300,300);
-            //Chenge.scale.set(200,200,200);
-            //Chenge.scale.set(100,100,100);
+            Chenge2.scale.set(300,300,300);
+            Chenge3.scale.set(200,200,200);
+            Chenge4.scale.set(100,100,100);
 
             tmr++;
             if(tmr > 30)
@@ -826,6 +849,12 @@
               tmr = 0;
               Chenge.position.set(0,-10000,0);
               Chenge.scale.set(1,1,1);
+              Chenge2.position.set(0,-10000,0);
+              Chenge2.scale.set(1,1,1);
+              Chenge3.position.set(0,-10000,0);
+              Chenge3.scale.set(1,1,1);
+              Chenge4.position.set(0,-10000,0);
+              Chenge4.scale.set(1,1,1);
             }
           }
           else if(F2 == 3)
