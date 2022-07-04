@@ -595,6 +595,18 @@
         GTbeam2.position.set(0, -10000, 0);
         GTbeam2.scale.set(4, 4, 4);
 
+        var textureLoader = new THREE.TextureLoader();  
+        var texture10 = textureLoader.load("hanabi/hanabi1.png");
+        const material1 = new THREE.SpriteMaterial({ map: texture10});
+
+        const sprite1 = new THREE.Sprite(material1);
+        sprite1.position.x = 0;
+        sprite1.position.y = 0;
+        sprite1.position.z = 0;
+        sprite1.scale.set(200,200,200);
+        scene.add(sprite1);
+
+        //エフェクトの定義
         const Chenge = new THREE.Mesh( boxgeometry, material_WH);
         scene.add( Chenge );
         Chenge.position.set(0, -10000, 0);
@@ -633,9 +645,12 @@
           
           if(F1 == 0)
           {
+            //合体の動作
             GetterE.position.x += 5;
             GetterB.position.x -= 5;
             GTbeam1.scale.set(7, 7, 7);
+
+            //エフェクトの表示
             if(tmr > 60)
             {
               Chenge.position.set(0,0,0);
@@ -651,6 +666,8 @@
               GetterB.position.set(0, -10000, 0);
               tmr2++;
             }
+
+            //エフェクトの消去
             if(tmr2 > 30)
             {
               F1 = 1;
@@ -668,7 +685,10 @@
           }
           else if(F1 == 1)
           {
+            //ロボットの出現
             Getter1.position.set(0, 100, 0);
+
+            //腕を曲げる動作
             arm1R_GT1.rotation.y += -0.01*4;
             arm1R_GT1.position.x -= 0.6*4;
             arm1R_GT1.position.y += 1*4;
@@ -705,6 +725,7 @@
               handL_GT1.position.z = arm2R_GT1.position.z+90;
             }
             
+
             handR_GT1.position.x = arm2R_GT1.position.x;
             arm2R_GT1.rotation.x += -0.02*4;
             arm2R_GT1.rotation.z += -0.005*4;
@@ -715,6 +736,8 @@
             arm2L_GT1.rotation.z += 0.005*4;
             handL_GT1.rotation.x += -0.02*4;
             handL_GT1.rotation.z += 0.002*4;
+
+            //ビームの表示
             if(arm1R_GT1.position.y+1 > shoulderR_GT1.position.y-50)
             {
               F1 = 2;
@@ -723,7 +746,7 @@
           }
           else if(F1 == 2)
           {
-            
+            //ビームの切り替え
             if(tmr%2 == 0)
             {
               GTbeam1.position.set(0, -10000, 0);
@@ -734,6 +757,8 @@
               GTbeam2.position.set(0, -10000, 0);
               GTbeam1.position.set(body_Gt1.position.x-50, body_Gt1.position.y-150, body_Gt1.position.z);
             }
+
+            //腕を戻すフェーズへ
             if(tmr > 100)
             {
               F1 = 3;
@@ -743,6 +768,7 @@
           }
           else if(F1 == 3)
           {
+
             arm1R_GT1.rotation.y -= -0.01*7;
             arm1R_GT1.position.x += 0.6*7;
             arm1R_GT1.position.y -= 1*7;
@@ -791,6 +817,7 @@
             handL_GT1.rotation.z -= 0.002*7;
             if(arm1R_GT1.position.y < F1ry)
             {
+              //ビームの発射へ
               F1 = 4;
               handR_GT1.position.x = F1hrx;
               handR_GT1.position.y = F1hry;
@@ -802,6 +829,7 @@
           }
           else if(F1 == 4)
           {
+            //ビームの発射・拡大
             GTbeam1.scale.set(7+3*tmr, 7+0.3*tmr, 7+0.3*tmr);
             GTbeam1.position.x -= 4.5*tmr;
             tmr++;
@@ -812,6 +840,7 @@
             }
           }
 
+          //ロボットの変形
           if(F2 == 1)
           {
             tmr++;
@@ -823,8 +852,10 @@
           }
           else if(F2 == 2)
           {
+            //ロボットの消去
             Getter1.position.set(0, -10000, 0);
             
+            //エフェクトの表示
             armR_GT1.position.y = F1ry;
             armL_GT1.position.y = F1ly;
             handR_GT1.position.x = F1hrx;
@@ -845,6 +876,7 @@
             tmr++;
             if(tmr > 30)
             {
+              //エフェクトの消去
               F2 = 3;
               tmr = 0;
               Chenge.position.set(0,-10000,0);
@@ -861,9 +893,9 @@
           {
             if(tmr < 30)
             {
+              //小型ロボットの出現
               GetterB.position.set(0, 200, 0);
               GetterB.rotation.z = 3.14/2+3.14/4;
-
               GetterB.rotation.x = 3.14;
               GetterB.rotation.y = 0.78*2+3.14/2;
               GetterE.position.set(500, 100, 0);
@@ -874,6 +906,7 @@
             }
             else if(tmr > 300)
             {
+              //初期状態に戻す
               F1 = 0;
               F2 = 0;
               tmr = 0;
@@ -893,6 +926,7 @@
             }
             else
             {
+              //小型ロボットの移動
               GetterE.position.x += 1+1.5*tmr;
               GetterE.position.y += 1+0.5*tmr;
               GetterJ.position.x -= 1+1.5*tmr;
@@ -910,13 +944,15 @@
     </script>
   </head>
   <body>
-    <h1>若い命が真紅に燃えて(最終作品)</h1>
+    <h1>
+      作品タイトル<br>
+      若い命が真紅に燃えて(最終作品)</h1>
     <canvas id="myCanvas"></canvas>
     <p>
-      本課題では、ロボットの合体、ビーム攻撃を再現した。<br>
+      本課題では、ロボットの合体・変形とビーム攻撃を再現した。<br>
       ロボットには、テクスチャーをつけることで、模様をつけた。<br>
       テクスチャーは、面ごとに設定することで、余計な部分にテクスチャーが表示されないようにした。<br>
-      フォグを設定することで、飛んでいく時の遠近感を表現した。<br>
+      フォグを設定することで、小型ロボットが飛んでいく時の遠近感を表現した。<br>
       ロボットの合体、変形シーンは、白い直方体を配置し、シーンの切り替えを再現した。<br>
       ロボットがビームを発射するシーンでは、大きさの異なる球を交互に表示することで、<br>
       発射までの溜め時間を表現した。<br>

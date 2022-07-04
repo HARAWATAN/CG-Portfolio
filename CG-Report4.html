@@ -99,17 +99,21 @@
         sprite4.scale.set(20,20,20);
         scene.add(sprite4);
 
+        //川の定義
         const river_g = new THREE.BoxGeometry(1000, 0.8, 1000);
         const material_river = new THREE.MeshBasicMaterial( {color: 0x4c6cb3} );
         const river = new THREE.Mesh(river_g, material_river);
         river.position.set(0, 0, 0);
         scene.add(river);
 
+
+        //花火の尾のマテリアル・ジオメトリ
         const box_g = new THREE.BoxGeometry(0.5, 50, 0.5);
         const material_R = new THREE.MeshBasicMaterial( {color: 0xFF0000} );
         const material_Sl = new THREE.MeshBasicMaterial( {color: 0xeaf4fc} );
         const material_Or = new THREE.MeshBasicMaterial( {color: 0xf8b500} );
 
+        //花火の尾の定義
         const box_1 = new THREE.Mesh(box_g, material_R);
         box_1.position.set(0, 0, 0);
         scene.add(box_1);
@@ -128,9 +132,11 @@
           // レンダリング
           renderer.render(scene, camera);
           requestAnimationFrame(tick);
+          //花火が打ちあがる動作
           box_1.position.y += 2;
           box_2.position.y += 3;
           box_3.position.y += 2;
+          //一定の高さに達したら、花火のビルボードを表示
           if(box_1.position.y > 250)
           {
             F1 = 1;
@@ -142,6 +148,7 @@
               box_1.position.x = -400;
             }
           }
+          //花火を消す
           else if(box_1.position.y > -50)
           {
             sprite1.position.y = -5000;
@@ -156,6 +163,7 @@
             }
           }
 
+          //一定の高さに達したら、花火のビルボードを表示
           if(box_2.position.y > 200)
           {
             F2 = 1;
@@ -167,6 +175,7 @@
               box_2.position.x = -500;
             }
           }
+          //花火を消す
           else if(box_2.position.y > -50)
           {
             sprite2.position.y = -5000;
@@ -181,6 +190,7 @@
             }
           }
 
+          //一定の高さに達したら、花火のビルボードを表示
           if(box_3.position.y > 250)
           {
             F3 = 1;
@@ -192,6 +202,7 @@
               box_3.position.x = -300;
             }
           }
+          //花火を消す
           else if(box_3.position.y > -50)
           {
             sprite3.position.y = -5000;
@@ -210,12 +221,15 @@
     </script>
   </head>
   <body>
-    <h1>打ち上げ花火はどこから見ても同じ</h1>
+    <h1>
+      作品タイトル<br>
+      打ち上げ花火はどこから見ても同じ
+    </h1>
     <canvas id="myCanvas"></canvas>
     <p>
       本課題では、ビルボードで花火を再現した。<br>
       花火や月のオブジェクトは、スプライトで作成し、ビルボードを実現させた。<br>
-      薄い直方体のジオメトリを、作成することで、下から上がってくる花火の尾を隠しつつ、海を再現した。<br>
+      薄い直方体のジオメトリを、作成することで、下から上がってくる花火の尾を隠し、川を再現した。<br>
       花火の尾は、細い長方形のジオメトリで再現した。花火の色ごとに色を変更した。<br>
       花火は、咲いた後すぐに消さず、花火の尾が一定の高さに上がるまで残した。<br>
       打ち上げた後は、少しずつX軸方向にずらし、打ち上げ場所を変化させた。<br>

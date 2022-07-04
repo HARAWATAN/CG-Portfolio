@@ -139,6 +139,7 @@
         fish_tail.rotation.x += 3.14/2;
         fish_tail.rotation.z += 3.14/2;
 
+        //魚の尾の定義
         var fish_tail_2 = new THREE.Mesh(geometry_ft, material_ft);
         fish_tail_2.scale.set(0.25, 0.05, 0.5);
         fish_tail_2.position.set(5.5, 5, 0);
@@ -151,6 +152,7 @@
         fish_tail_3.rotation.x += 3.14/2;
         fish_tail_3.rotation.z += 3.14/2;
 
+        //魚の体の定義
         var geometry_fb = new THREE.SphereGeometry(1, 32, 32);
         var material_fb = new THREE.MeshPhongMaterial({ color: 0xa0d8ef });
         var fish_body = new THREE.Mesh(geometry_fb, material_fb);
@@ -168,6 +170,7 @@
         fish_body_3.position.set(5, 5, 0);
         fish_body_3.rotation.y += 3.14/2;
 
+        //魚の目の定義
         var geometry_fe = new THREE.SphereGeometry(0.2, 32, 32);
         var material_fe = new THREE.MeshPhongMaterial({ color: 0x000000 });
         var fish_eye_1 = new THREE.Mesh(geometry_fe, material_fe);
@@ -191,6 +194,7 @@
         fish_eye_1_3.position.set(4.5, 5.25, 0.15);
         fish_eye_2_3.position.set(4.5, 5.25, -0.15);
 
+        //魚のグループ化
         const fish1 = new THREE.Group()
         const fish2 = new THREE.Group()
         const fish3 = new THREE.Group()
@@ -220,6 +224,7 @@
           // レンダリング
           renderer.render(scene, camera);
           requestAnimationFrame(update);
+          //魚の尾の動き
           if(TF == 0)
           {
             fish_tail.rotation.z += 0.005;
@@ -240,6 +245,7 @@
               TF = 0;
             }
           }
+          //魚の移動
           fish1.position.x -= 0.01;
           if(fish1.position.x < -g4_lage)
           {
@@ -261,14 +267,18 @@
         }
       }
     </script>
-    <h1>泳ぐ魚たち</h1>
+    <h1>
+      作品タイトル<br>
+      泳ぐ魚たち
+    </h1>
     <canvas id="myCanvas"></canvas>
     <p>
-    本課題では、オブジェクトにテクスチャーを貼り付けた。<br>
+    本課題では、オブジェクトにテクスチャーを貼り付けて、水中の様子を再現した。<br>
     水中の表現は、テクスチャーを貼ったオブジェクトで箱を作って表現した。<br>
     下にあるオブジェクトには、石のテクスチャーを貼って海底らしさを出した。<br>
     魚のオブジェクトは、グループ化をして、それぞれ泳ぐ速度を変えた。<br>
-    しっぽだけ動かして、泳いでる雰囲気を出した。<br>
+    魚の尾は、TFという変数で管理して、左右に動かした。<br>
+    魚が、水中の外に出たら、反対側に移動させて、繰り返し泳ぐようにした。<br>
     </p>
 </body>
 </html>
