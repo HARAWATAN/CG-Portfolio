@@ -58,11 +58,14 @@
 
 
           // helper
-        const gridHelper = new THREE.GridHelper(200,50); // size, step
+        /*const gridHelper = new THREE.GridHelper(200,50); // size, step
         scene.add(gridHelper);
 
         const axisHelper = new THREE.AxisHelper(200,50);
         scene.add(axisHelper);
+        */
+
+        //フォグの追加
         scene.fog = new THREE.Fog(0xa0d8ef, 800, 2000);
 
         var textureLoader = new THREE.TextureLoader();  
@@ -597,17 +600,15 @@
 
         var textureLoader = new THREE.TextureLoader();  
         var texture10 = textureLoader.load("hanabi/hanabi1.png");
-        const material1 = new THREE.SpriteMaterial({ map: texture10});
+        const material1 = new THREE.SpriteMaterial({ material_WH });
 
         const sprite1 = new THREE.Sprite(material1);
-        sprite1.position.x = 0;
-        sprite1.position.y = 0;
-        sprite1.position.z = 0;
-        sprite1.scale.set(200,200,200);
+        sprite1.position.set(0, -10000, 0);
+        sprite1.scale.set(2000,2000,2000);
         scene.add(sprite1);
 
         //エフェクトの定義
-        const Chenge = new THREE.Mesh( boxgeometry, material_WH);
+        /*const Chenge = new THREE.Mesh( boxgeometry, material_WH);
         scene.add( Chenge );
         Chenge.position.set(0, -10000, 0);
 
@@ -621,7 +622,7 @@
 
         const Chenge4 = new THREE.Mesh( boxgeometry, material_WH);
         scene.add( Chenge4 );
-        Chenge4.position.set(0, -10000, 0);
+        Chenge4.position.set(0, -10000, 0);*/
 
 
         //F1 = 0;
@@ -653,14 +654,7 @@
             //エフェクトの表示
             if(tmr > 60)
             {
-              Chenge.position.set(0,0,0);
-              Chenge2.position.set(0,0,0);
-              Chenge3.position.set(0,0,0);
-              Chenge3.position.set(0,0,0);
-              Chenge.scale.set(400,400,400);
-              Chenge2.scale.set(300,300,300);
-              Chenge3.scale.set(200,200,200);
-              Chenge4.scale.set(100,100,100);
+              sprite1.position.set(0, 0, 0);
               GetterE.position.set(0, -10000, 0);
               GetterJ.position.set(0, -10000, 0);
               GetterB.position.set(0, -10000, 0);
@@ -672,14 +666,7 @@
             {
               F1 = 1;
               tmr = 0;
-              Chenge.position.set(0,-10000,0);
-              Chenge.scale.set(1,1,1);
-              Chenge2.position.set(0,-10000,0);
-              Chenge2.scale.set(1,1,1);
-              Chenge3.position.set(0,-10000,0);
-              Chenge3.scale.set(1,1,1);
-              Chenge4.position.set(0,-10000,0);
-              Chenge4.scale.set(1,1,1);
+              sprite1.position.set(0, -10000, 0);
             }
             tmr++;
           }
@@ -864,14 +851,7 @@
             handL_GT1.position.x = F1hlx;
             handL_GT1.position.y = F1hly;
             handL_GT1.position.z = F1hlz;
-            Chenge.position.set(0,0,0);
-            Chenge2.position.set(0,0,0);
-            Chenge3.position.set(0,0,0);
-            Chenge3.position.set(0,0,0);
-            Chenge.scale.set(400,400,400);
-            Chenge2.scale.set(300,300,300);
-            Chenge3.scale.set(200,200,200);
-            Chenge4.scale.set(100,100,100);
+            sprite1.position.set(0, 0, 0);
 
             tmr++;
             if(tmr > 30)
@@ -879,14 +859,7 @@
               //エフェクトの消去
               F2 = 3;
               tmr = 0;
-              Chenge.position.set(0,-10000,0);
-              Chenge.scale.set(1,1,1);
-              Chenge2.position.set(0,-10000,0);
-              Chenge2.scale.set(1,1,1);
-              Chenge3.position.set(0,-10000,0);
-              Chenge3.scale.set(1,1,1);
-              Chenge4.position.set(0,-10000,0);
-              Chenge4.scale.set(1,1,1);
+              sprite1.position.set(0, -10000, 0);
             }
           }
           else if(F2 == 3)
@@ -953,7 +926,7 @@
       ロボットには、テクスチャーをつけることで、模様をつけた。<br>
       テクスチャーは、面ごとに設定することで、余計な部分にテクスチャーが表示されないようにした。<br>
       フォグを設定することで、小型ロボットが飛んでいく時の遠近感を表現した。<br>
-      ロボットの合体、変形シーンは、白い直方体を配置し、シーンの切り替えを再現した。<br>
+      ロボットの合体、変形シーンは、白いビルボードを配置し、シーンの切り替えを表現した。<br>
       ロボットがビームを発射するシーンでは、大きさの異なる球を交互に表示することで、<br>
       発射までの溜め時間を表現した。<br>
       ビームのメッシュは、透過処理を行うことで、ビーム感を再現した。<br>
