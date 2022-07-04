@@ -8,6 +8,8 @@
     <script>
       // ページの読み込みを待つ
       window.addEventListener('load', init);
+
+      //フラグの定義
       var F1 = 0;
       var F2 = 0;
       var F3 = 0;
@@ -68,6 +70,7 @@
         //フォグの追加
         scene.fog = new THREE.Fog(0xa0d8ef, 800, 2000);
 
+        //テクスチャーの読み込み
         var textureLoader = new THREE.TextureLoader();  
         var texture1 = textureLoader.load("neck_gt1.png");
         var texture2 = textureLoader.load("body_gt1.png");
@@ -78,9 +81,9 @@
         var mat_leg1Gt1 = new THREE.MeshPhongMaterial();
         var mat_faceGt1 = new THREE.MeshPhongMaterial();
         var mat_beam = new THREE.MeshPhongMaterial({
-          opacity: 0.8,
-          transparent: true,
-          depthTest: true
+          opacity: 0.8, //透明度
+          transparent: true, //透過の設定
+          depthTest: true // 陰面処理の設定
         });
         mat_neckGt1.map = texture1;
         mat_bodyGt1.map = texture2;
@@ -88,14 +91,19 @@
         mat_beam.map = texture4;
  
 
+        //ジオメトリの定義
         const conegeometry = new THREE.ConeGeometry( 5, 20, 32 );
         const boxgeometry = new THREE.BoxGeometry( 5, 5, 5 );
+
+        //マテリアルの定義
         const material = new THREE.MeshPhongMaterial( {color: 0xFF0000} );
         const material_Bl = new THREE.MeshPhongMaterial( {color: 0x000000} );
         const material_BLUE = new THREE.MeshPhongMaterial( {color: 0x4c6cb3} );
         const material_YELLOW = new THREE.MeshPhongMaterial( {color: 0xffff00} );
         const material_WH = new THREE.MeshPhongMaterial( {color: 0xffffff} );
         const body1_G1 = new THREE.Mesh( conegeometry, material );
+
+        //面ごとのマテリアル定義
         var leg1materials = [
           new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("leg1_gt1.png")}),
           new THREE.MeshPhongMaterial( {color: 0xFFFFFF} ),
@@ -114,12 +122,15 @@
         new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("armor_gt1.png")}),
         new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture("armor_gt1.png")})
         ];
+
+        
         var mat_leg1Gt1 = new THREE.MeshFaceMaterial(leg1materials);
         var mat_leg2Gt1 = new THREE.MeshFaceMaterial(leg2materials);
         var mat_armorGt1 = new THREE.MeshFaceMaterial(armormaaterials);
 
 
 
+        //イーグル号の定義
         scene.add( body1_G1 );
         body1_G1.scale.set(30,30,15);
         body1_G1.position.set(0, 100, 0);
@@ -182,6 +193,7 @@
         back3_G1.rotation.z = 3.14/2;
         back3_G1.position.set(0, -180, 0);
 
+        //イーグル号のグループ化
         const GetterE = new THREE.Group()
         GetterE.add(jet1_G1, jet2_G1, back1_G1, back2_G1, back3_G1, body1_G1, body2_G1, wingL_G1, wingR_G1, wingT_G1);
         GetterE.position.set(-600, 100, 0);
@@ -190,6 +202,7 @@
         GetterE.scale.set(0.5,0.5,0.5)
         scene.add(GetterE);
 
+        //ジャガー号の定義
         const material_GJ = new THREE.MeshPhongMaterial( {color: 0x95949a} );
         const body1_G2 = new THREE.Mesh( conegeometry, material_GJ );
         scene.add( body1_G2 );
@@ -257,6 +270,7 @@
         cockpit_G2.scale.set(10,15,5);
         cockpit_G2.position.set(0, 30, 70);
 
+        //ジャガー号のグループ化
         const GetterJ = new THREE.Group()
         GetterJ.add(jet1_G2, jet2_G2, back1_G2,body1_G2, body2_G2, body3_G2, body4_G2, body5_G2,wingL_G2, wingR_G2, cockpit_G2);
         GetterJ.position.set(0, 100, 0);
@@ -265,6 +279,7 @@
         GetterJ.scale.set(0.5, 0.5, 0.5);
         scene.add(GetterJ);
 
+        //ベアー号の定義
         const body1_G3 = new THREE.Mesh( cylindergeometry, material_YELLOW );
         scene.add( body1_G3 );
         body1_G3.scale.set(10,20,20);
@@ -377,6 +392,8 @@
         jet2_G3.rotation.y = 3.14/2;
         jet2_G3.position.set(-70, -180, 20);
 
+
+        //ベアー号のグループ化
         const GetterB = new THREE.Group()
         GetterB.add(jet1_G3, jet2_G3, back1_G3,body1_G3, body2_G3, wingL_G3, 
         wingR_G3, cockpit_G3, back1_G3, back2_G3,back3_G3,back4_G3,back5_G3,
@@ -387,6 +404,7 @@
         GetterB.scale.set(0.5, 0.5, 0.5);
         scene.add(GetterB);
 
+        //ロボットの体の定義
         const horngeometry = new THREE.ConeGeometry( 5, 20, 4 );
         const hornR_GT1 = new THREE.Mesh( horngeometry, material);
         scene.add( hornR_GT1 );
@@ -454,6 +472,7 @@
         shoulderL_GT1.scale.set(18,18,18);
         shoulderL_GT1.position.set(-280, -320, -10);
 
+        //ロボットの腕の定義
         const arm1R_GT1 = new THREE.Mesh( armorgeometry, material_WH);
         scene.add( arm1R_GT1 );
         arm1R_GT1.scale.set(7,25,7);
@@ -490,6 +509,7 @@
         handL_GT1.rotation.z = -0.61/2;
         handL_GT1.position.set(-600, -760, -10);
 
+        //ロボットの足の定義
         const leg1R_GT1 = new THREE.Mesh( armorgeometry, mat_leg1Gt1);
         scene.add( leg1R_GT1 );
         leg1R_GT1.scale.set(10,30,10);
@@ -556,6 +576,7 @@
         shoesL_GT1.scale.set(20,15,40);
         shoesL_GT1.position.set(-530, -1620, 40);
 
+        //ロボットのグループ化
         const armR_GT1 = new THREE.Group()
         armR_GT1.add(arm1R_GT1, arm2R_GT1, handR_GT1);
         
@@ -584,13 +605,11 @@
         Getter1.position.set(0, -10000, 0);
         scene.add(Getter1);
 
+        //ビームの定義
         const GTbeam1 = new THREE.Mesh( bodyGJ, mat_beam);
         scene.add( GTbeam1 );
         GTbeam1.position.set(0, -10000, 0);
         GTbeam1.scale.set(7, 7, 7);
-        opacity = 0.7;
-        transparent = true;
-        depthTest = false;
 
 
         const GTbeam2 = new THREE.Mesh( bodyGJ, mat_beam);
@@ -598,6 +617,7 @@
         GTbeam2.position.set(0, -10000, 0);
         GTbeam2.scale.set(4, 4, 4);
 
+        //ビルボードの定義
         var textureLoader = new THREE.TextureLoader();  
         var texture10 = textureLoader.load("hanabi/hanabi1.png");
         const material1 = new THREE.SpriteMaterial({ material_WH });
@@ -606,24 +626,6 @@
         sprite1.position.set(0, -10000, 0);
         sprite1.scale.set(2000,2000,2000);
         scene.add(sprite1);
-
-        //エフェクトの定義
-        /*const Chenge = new THREE.Mesh( boxgeometry, material_WH);
-        scene.add( Chenge );
-        Chenge.position.set(0, -10000, 0);
-
-        const Chenge2 = new THREE.Mesh( boxgeometry, material_WH);
-        scene.add( Chenge2 );
-        Chenge2.position.set(0, -10000, 0);
-
-        const Chenge3 = new THREE.Mesh( boxgeometry, material_WH);
-        scene.add( Chenge3 );
-        Chenge3.position.set(0, -10000, 0);
-
-        const Chenge4 = new THREE.Mesh( boxgeometry, material_WH);
-        scene.add( Chenge4 );
-        Chenge4.position.set(0, -10000, 0);*/
-
 
         //F1 = 0;
 
@@ -919,7 +921,7 @@
   <body>
     <h1>
       作品タイトル<br>
-      若い命が真紅に燃えて(最終作品)</h1>
+      チェーンジ!!(最終作品)</h1>
     <canvas id="myCanvas"></canvas>
     <p>
       本課題では、ロボットの合体・変形とビーム攻撃を再現した。<br>
@@ -930,8 +932,6 @@
       ロボットがビームを発射するシーンでは、大きさの異なる球を交互に表示することで、<br>
       発射までの溜め時間を表現した。<br>
       ビームのメッシュは、透過処理を行うことで、ビーム感を再現した。<br>
-
-
 
     </p>
   </body>
